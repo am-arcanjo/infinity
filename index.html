@@ -3,31 +3,94 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Javascript 7 - Funções (Revisão) e mais sobre</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Javascript 9 - Revisão e continuação Eventos DOM </title>
+  <style>
+    table {
+        margin-top: 20px;
+    }
+
+    table, td, th {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 10px;
+    }
+
+    img {
+        width: 100px;
+        height: 100px;
+      }
+
+    * {
+        background-color: rgb(136, 85, 43);
+    }
+      </style>
 </head>
 <body>
-  <p></p>
+    <!-- Perdi a aula passada pois fui ver mãe; perdi o início dele por muito trânsito
+     Document Object Model: é uma representação da árvore de elementos do HTML. Trás o modelo do nosso documento HMTL, permitindo manipular o mesmo.
+     A ideia é criar uma variável global document que concede acesso ao nosso documento e usar os métodos disponíveis para manipulação, entre os quais podemos citar: getElementsByTagName, getElementsByName, getElementsByClassName, getElementById, querySelector, querySelectorAll.... *não se limitam a esses
+    -->
+    <h1>Cadastro de produtos</h1>
+    <form>
+        <input id="nome" type="text" placeholder="Digite o nome" />
+        <input id="preco" type="number" step="0.01" placeholder="Digite o preço" />
+        <input id="link_imagem" type="text" placeholder="Digite o link da imagem" />
+        <select id="categoria">
+            <option value="">Selecione</option>
+            <option value="Alimentação">Alimentação</option>
+            <option value="Higiene">Higiene</option>
+            <option value="Decoração">Decoração</option>
+        </select>
+
+      <button type="button" onclick="cadastrarProduto()">Cadastrar</button>
+  </form>
+
+  <table>
+      <thead>
+          <tr>
+              <th>Imagem</th>
+              <th>Nome</th>
+              <th>Preço</th>
+              <th>Categoria</th>
+          </tr>
+      </thead>
+      <tbody></tbody>
+  </table>
   <script>
-   //Funções anônimas; uma das formas de uso é quando se associa uma função a uma variável
-   let soma = function(n1, n2) {
-    return n1 + n2
-   }
+        let nome = document.getElementById("nome")
+        let preco = document.getElementById("preco")
+        let categoria = document.getElementById("categoria")
+        let linkImagem = document.getElementById("link_imagem")
+        let tbody = document.querySelector("tbody")
 
-   soma(8, 44)
+        function cadastrarProduto() {
+            if (nome.value === "" || 
+                !preco.value || 
+                !categoria.value || 
+                !linkImagem.value
+                ) {
+                    alert("Preencha todos os dados")
+                    return
+            }
+            let linhaTabela = document.createElement("tr")
+            let celulaImagem = document.createElement("td")
+            let imagem = document.createElement("img")
+            imagem.src = linkImagem.value
+            celulaImagem.appendChild(imagem)
 
-   //Não se faz dessa forma hoje em dia, mas pode ser que em sistemas legados você se depare com isso
+            let celulaNome = document.createElement("td")
+            celulaNome.innerText = nome.value
 
-   //Função anônima arrow function; perceba que ela não usa a palavra 'function'
-   //Obs: quando se tem somente um parâmetro, pode-se tirar o parêntese, assim como caso o retorno seja uma 'linha' só, pode-se tirar tanto os {} quanto a palavra return,  tal que: let potenciacao = numero => numero ** 2
-   let potenciacao = (numero) => {
-      return numero ** 2
-   }
+            let celulaPreco = document.createElement("td")
+            celulaPreco.innerText = "R$ " + Number(preco.value).toFixed(2)
 
-   potenciacao(6)
+            let celulaCategoria = document.createElement("td")
+            celulaCategoria.innerText = categoria.value
 
+            linhaTabela.append(celulaImagem, celulaNome, celulaPreco, celulaCategoria)
 
-
+            tbody.append(linhaTabela)
+        }
   </script>
 </body>
 </html>
