@@ -3,203 +3,57 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Javascript 11 - Ela inverteu a 11 com a 12 para passar atividades mais condizentes</title>
+  <title>Javascript 12 - Funções agregadoras</title>
   <style>
     * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Poppins', sans-serif;
-    }
-
-    body {
-        background-color: rgb(245, 232, 220);
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    h1 {
-        margin-top: 3rem;
-        margin-bottom: 3rem;
-    }
-
-    main {
-        width: 70%;
-        max-width: 500px;
-    }
-
-    form {
-        background-color: white;
-        padding: 1.5rem;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        border: 1px solid rgb(172, 172, 172);
-        border-radius: 5px;
-    }
-
-    form div {
-        display: flex;
-        flex-direction: column;
-        gap: 0.3rem;
-    }
-
-    form input {
-        padding: 0.3rem;
-    }
-
-    form button {
-        border: none;
-        padding: 0.5rem;
-        border-radius: 4px;
-        background-color: rgb(232, 135, 66);
-        color: white;
-        transition: 0.4s;
-        cursor: pointer;
-    }
-
-    form button:hover {
-        background-color: rgb(210, 103, 27);
-    }
-
-    .tarefas {
-        margin-top: 2rem;
-    }
-
-    .tarefa {
-        background-color: rgb(255, 201, 157);
-        display: flex;
-        padding: 1rem;
-        border-radius: 5px;
-        margin-bottom: 1rem;
-    }
-
-    .tarefa p {
-        margin-left: 0.5rem;
-    }
-
-    .tarefa div {
-        margin-left: auto;
-        display: flex;
-        gap: 0.3rem;
-    }
-
-    .tarefa button {
-        border: none;
-        background-color: rgb(210, 103, 27);
-        color: white;
-        padding: 0.3rem 0.7rem;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-
-    .tarefa input:checked + p {
-        color: gray;
-        text-decoration: line-through;
+        background-color: rgb(31, 31, 31);
     }
       </style>
 </head>
 <body>
-    <!-- Perdi a aula passada pois doente; aula passada foi projeto com inputs, botão de adição de tarefas na listagem e algumas outras coisas. Ela iniciou terminando o CRUD da aula passada, tinha ficado faltando a deleção.
-    -->
-    <h1>Lista de tarefas</h1>
+    <!-- Lembrar que ela 'inverteu' a aula passada com essa
+      Se eu quiser relembrar, ela deu uma refatorada no exercício da aula anterior, está no notepad: 419-24-04
 
+      As funções agregadoras são 4, a forma de escrever elas é parecida mas cada uma tem sua função. Todas são funções que serão rodadas em um array.
+      1) forEach; pede um parâmetro, que nesse caso é uma função callback (função que é um parâmetro de outra)
+      2) map; também irá percorrer pelo array e também vai pegar uma função callback com os mesmos possíveis parâmetros (elementos, index, array). Porém, diferentemente do forEach, ele faz isso e cria um array novo. É obrigatório que ele tenha um return.
+      3) filter; literalmente filtro
+      4) reduce
+
+    -->
     <main>
-        <form>
-            <div>
-                <label for="nome_tarefa">Nome da tarefa</label>
-                <input id="nome_tarefa" type="text" required />
-            </div>
-            <div>
-                <label for="descricao_tarefa">Descrição da tarefa</label>
-                <input id="descricao_tarefa" type="text" />
-            </div>
-            <button>Adicionar</button>
-        </form>
-    
-        <div class="tarefas"></div>
     </main>
 </body>
 </html>
     <script>
+      let alunas = ["Fernanda","Anastásia","Lígia","Eduarda"]
 
-    const form = document.querySelector("form")
-    const containerTarefas = document.querySelector(".tarefas")
-    const tarefas = []
+      //Elemento é obrigatório, porém index e array são opcionais
+      function mostrarNoConsole(elemento, index, array) {
+        console.log(elemento, index, array)
+      }
 
-    form.addEventListener("submit", adicionarTarefa)
+      alunas.forEach(mostrarNoConsole)
 
-    function adicionarTarefa(eventoDeSubmit) {
-        eventoDeSubmit.preventDefault()
+      const novosAlunos = alunas.map(elemento => {
+        return console.log(elemento.toUpperCase());
+      });
 
-        const nomeTarefa = form.nome_tarefa.value
+      let tarefas = [
+        {nome: "Lavar louça", completa: false},
+        {nome: "Faxinar", completa: true},
+        {nome: "Estudar", completa: true},
+        {nome: "Jogar", completa: true},
+        {nome: "Dormir", completa: false},
+      ]
 
-        tarefas.push(nomeTarefa)
+      const tarefasCompletas = tarefas.filter(tarefa => {
+        return tarefa.completa
+      }
+    )
 
-        mostrarNaTela()
-    }
-
-    function mostrarNaTela() {
-        containerTarefas.innerHTML = ""
-
-        for (let tarefa of tarefas) {
-            const containerTarefa = document.createElement("div") //<div></div>
-            containerTarefa.classList.add("tarefa")
-        
-            const nomeDaTarefa = document.createElement("p") //<p></p>
-            nomeDaTarefa.innerText = tarefa
-        
-            const input = document.createElement("input") //<input />
-            input.type = "checkbox"
-        
-            const containerBotoes = document.createElement("div") 
-        
-            const botaoApagar = document.createElement("button")
-            botaoApagar.innerText = "Apagar"
-            botaoApagar.addEventListener("click", () => apagarTarefa(tarefa))
-            
-            const botaoEditar = document.createElement("button")
-            botaoEditar.innerText = "Editar"
-            botaoEditar.addEventListener("click", () => editarTarefa(tarefa))
-        
-            containerBotoes.append(botaoEditar, botaoApagar)
-        
-            containerTarefa.append(input, nomeDaTarefa, containerBotoes)
-        
-            containerTarefas.appendChild(containerTarefa)
-        }
-    }
-
-    function apagarTarefa(tarefa) {
-        console.log("Apaguei")
-        for (let i = 0; i < tarefas.length; i++) {
-            if (tarefas[i] === tarefa) {
-                tarefas.splice(i, 1);
-                break;
-            }
-        }
-
-        mostrarNaTela();
-    }
-
-    function editarTarefa(tarefa) {
-        let novoNome = prompt("Digite o novo nome da tarefa")
-
-        if (!novoNome /* nomeNome === "" */) {
-            return
-        }
-
-        for (let i = 0; i < tarefas.length; i++) {
-            if (tarefas[i] === tarefa) {
-                tarefas[i] = novoNome
-                break;
-            }
-        }
-
-        mostrarNaTela()
-    }
+    console.log(tarefasCompletas)
+    
     </script>
 </body>
 </html>

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Atividade de Produtos para testar as funções agregadoras</title>
+  <style>
+    table {
+        margin-top: 20px;
+        border-radius: 4px;
+        margin-left: 10px;
+    }
+
+    table, td, th {
+        border: 1px solid rgb(209, 209, 209);
+        border-collapse: collapse;
+        padding: 10px;
+        border-radius: 4px;
+    }
+
+    * {
+        background-color: rgb(136, 85, 43);
+        color: rgb(171, 171, 171);
+    }
+
+    h1 {
+      margin-left: 10px;
+    }
+
+    #categoria {
+      margin-left: 10px;
+    }
+
+    #botaoFiltro {
+      margin-top: 20px;
+      margin-left: 5px;
+      border-radius: 5px;
+      transition: 0.5s;
+    }
+
+    #botaoFiltro:hover {
+      color: rgb(209, 208, 208);
+    }
+      </style>
+</head>
+<body>
+    <!-- 1) A ideia aqui será criar uma lógica que filtre apenas os produtos cuja categoria seja eletrodomésticos
+    -->
+    <main>
+      <h1> Produtos </h1>
+      <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Categoria</th>
+                <th>Preço</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <select id="categoria">
+        <option value="">Selecione</option>
+        <option value="Eletrodomésticos">Eletrodomésticos</option>
+        <option value="Móveis">Móveis</option>
+        <option value="Eletrônicos">Eletrônicos</option>
+      </select>
+      <button onClick="filtrarCategoria()" id="botaoFiltro">Filtrar</button>
+    </main>
+</body>
+</html>
+    <script>
+      let produtos = [
+            {nome: "Geladeira", categoria: "Eletrodomésticos", preco: 2500},
+            {nome: "Guarda-Roupa", categoria: "Móveis", preco: 1300},
+            {nome: "Microondas", categoria: "Eletrodomésticos", preco: 450},
+            {nome: "Sofa", categoria: "Móveis", preco: 600},
+            {nome: "Cama", categoria: "Móveis", preco: 1845},
+            {nome: "Notebook", categoria: "Eletrônicos", preco: 1845},
+        ]
+
+
+      function mostrarNaTela(elemento, index, array) {
+        let linhaTabela = document.createElement("tr")
+
+        let celulaNome = document.createElement("td")
+        celulaNome.innerText = elemento.nome
+
+        let celulaCategoria = document.createElement("td")
+        celulaCategoria.innerText = elemento.categoria
+
+        let celulaPreco = document.createElement("td")
+        celulaPreco.innerText = elemento.preco
+
+        linhaTabela.append(celulaNome, celulaCategoria, celulaPreco)
+
+        document.querySelector("tbody").append(linhaTabela)
+      }
+
+      produtos.forEach(mostrarNaTela)
+
+      function filtrarCategoria() {
+        let categoriaSelecionada = document.getElementById('categoria').value;
+          if (categoriaSelecionada!== "") {
+            produtosFiltrados = produtos.filter(produto => produto.categoria === categoriaSelecionada);
+            limparTabela();
+            produtosFiltrados.forEach(mostrarNaTela);
+          } else {
+            limparTabela();
+            produtos.forEach(mostrarNaTela);
+          }
+      }
+
+      function limparTabela() {
+        document.querySelector("tbody").innerHTML = "";
+      }
+
+    </script>
+</body>
+</html>
