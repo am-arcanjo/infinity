@@ -3,31 +3,36 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Javascript 4 - Laços de repetição</title>
+  <title>Javascript 5 - Arrays</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <p id="sequencia"></p>
   <script>
-    //Fibonacci
-    let p = document.getElementById("sequencia")
+    let idadesFuncionarios = [20, 60, 33]
 
-    let anterior = 0;
-    let proximo = 1;
-    let atual = 1;
+    //Coloca elemento ou elementos no final do array
+    idadesFuncionarios.push(99, 104, 22)
 
-    let iterador = 1;
+    //Adiciona elemento ou elementos no início do array
+    idadesFuncionarios.unshift(77, 88, 11)
 
-    while (iterador <= 10) {
-      proximo = anterior + atual;
-      console.log(atual);
-      p.innerHTML += `${atual} <br>`;
+    //Retira o último elemento e devolve ele
+    idadesFuncionarios.pop()
 
-      anterior = atual;
-      atual = proximo;
+    //Retira o primeiro elemento e devolve ele
+    idadesFuncionarios.shift()
 
-      iterador++
-    }
+    console.log(idadesFuncionarios);
+
+    //Retira elementos do array de acordo com um índice especificado; tem 3 valores, 2 obrigatórios e outro opcional: o primeiro valor (obrigatório) é a partir de qual índice o splice deve iniciar, o segundo valor (obrigatório) representa o número de elementos a ser retirado, e o terceiro valor (opcional) seria um valor para substituir o valor que será retirado, caso fosse desejada uma substituição ao invés de uma simples remoção
+    idadesFuncionarios.splice(3, 2, 56, 3);
+
+    console.log(idadesFuncionarios)
+
+    //Fala o index de um determinado elemento, caso ele exista no array
+    console.log(idadesFuncionarios.indexOf(56))
+
   </script>
 </body>
 </html>

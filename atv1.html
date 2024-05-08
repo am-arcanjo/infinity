@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Javascript 5 - Arrays - Atividade 1</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <p id="sequencia"></p>
+  <script>
+    let arrayCompleto = [];
+    let arrayPares = [];
+    let arrayImpares = [];
+
+    for (let i = 1; i < 11; i++) {
+      let num = prompt("Por favor digite um número: ")
+      arrayCompleto.push(num);
+
+      if(num % 2 === 0) {
+        arrayPares.push(num);
+      } else {
+        arrayImpares.push(num);
+      }
+    }
+
+    console.log(arrayCompleto)
+    console.log(arrayPares)
+    console.log(arrayImpares)
+
+  </script>
+</body>
+</html>
