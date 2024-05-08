@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Javascript 4 - Laços de repetição</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <script>
+    //Atividade do número primo
+    let numero = Number(prompt("Digite o número o qual deseja saber se é primo ou não."))
+    let isPrime = true;
+
+    for (let i = numero - 1; i >= 2; i--) {
+      if(numero % i === 0) {
+        isPrime = false;
+        break;
+      }
+    }
+
+    isPrime ? console.log("Seu número é primo") : console.log("Seu número não é primo, é tia");
+  </script>
+</body>
+</html>

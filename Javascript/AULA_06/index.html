@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Javascript 6 - Arrays (Revisão) e Funções</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <p></p>
+  <script>
+   //Cheguei atrasada então ele já tava passando alguma espécie de atividade
+   //Peça para o usuário uma n quantidade de números, armazene-os em um array e mostre a média dos números
+
+   let numeros = [];
+   let quantidade = Number(prompt("Insira quantos números você quer armazenar."))
+   let media = 0;
+
+   for (let n = 1; n <= quantidade; n++) {
+    numeros.push(Number(prompt(`Digite o ${n}° número`)));
+   }
+
+   for (let element of numeros) {
+    media += element
+   }
+
+   alert(`Sua média é ${media/quantidade}`)
+
+  </script>
+</body>
+</html>
