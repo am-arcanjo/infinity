@@ -3,57 +3,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Javascript 12 - Funções agregadoras</title>
+  <title>Javascript 13 - Estrutura try/catch, revisão da aula passada</title>
   <style>
     * {
-        background-color: rgb(31, 31, 31);
+        background-color: rgb(62, 59, 59);
     }
       </style>
 </head>
 <body>
-    <!-- Lembrar que ela 'inverteu' a aula passada com essa
-      Se eu quiser relembrar, ela deu uma refatorada no exercício da aula anterior, está no notepad: 419-24-04
-
-      As funções agregadoras são 4, a forma de escrever elas é parecida mas cada uma tem sua função. Todas são funções que serão rodadas em um array.
-      1) forEach; pede um parâmetro, que nesse caso é uma função callback (função que é um parâmetro de outra)
-      2) map; também irá percorrer pelo array e também vai pegar uma função callback com os mesmos possíveis parâmetros (elementos, index, array). Porém, diferentemente do forEach, ele faz isso e cria um array novo. É obrigatório que ele tenha um return.
-      3) filter; literalmente filtro
-      4) reduce
-
+    <!-- 
+      Na aula passada ficou faltando o reduce, então veremos hoje. Função built-in disponível para arrays. Usa-se para iterar sob os elementos do array e acumular um único valor, aplicando-o em uma função fornecida a cada elemento no array. Útil para: somar elementos, encontrar valor máximo/mínimo, etc.
+      Recebe dois parâmetros, uma função callback e o valor inicial. Nesse caso, a função callback do reduce vai receber um acumulador, o elemento atual, o índice desse elemento atual e o próprio array.
     -->
     <main>
     </main>
 </body>
 </html>
     <script>
-      let alunas = ["Fernanda","Anastásia","Lígia","Eduarda"]
 
-      //Elemento é obrigatório, porém index e array são opcionais
-      function mostrarNoConsole(elemento, index, array) {
-        console.log(elemento, index, array)
-      }
-
-      alunas.forEach(mostrarNoConsole)
-
-      const novosAlunos = alunas.map(elemento => {
-        return console.log(elemento.toUpperCase());
-      });
-
-      let tarefas = [
-        {nome: "Lavar louça", completa: false},
-        {nome: "Faxinar", completa: true},
-        {nome: "Estudar", completa: true},
-        {nome: "Jogar", completa: true},
-        {nome: "Dormir", completa: false},
-      ]
-
-      const tarefasCompletas = tarefas.filter(tarefa => {
-        return tarefa.completa
-      }
-    )
-
-    console.log(tarefasCompletas)
-    
     </script>
 </body>
 </html>
