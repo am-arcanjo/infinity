@@ -1,0 +1,13 @@
+body {
+    background-color: rgb(78, 73, 45);
+}
+
+p {
+    color: white;
+    font-size: 40px;
+}
+
+#container {
+    color: rgb(209, 211, 212);
+    font-style: bold;
+}

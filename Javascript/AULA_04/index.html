@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Javascript 4 - Laços de repetição</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <p id="sequencia"></p>
+  <script>
+    //Fibonacci
+    let p = document.getElementById("sequencia")
+
+    let anterior = 0;
+    let proximo = 1;
+    let atual = 1;
+
+    let iterador = 1;
+
+    while (iterador <= 10) {
+      proximo = anterior + atual;
+      console.log(atual);
+      p.innerHTML += `${atual} <br>`;
+
+      anterior = atual;
+      atual = proximo;
+
+      iterador++
+    }
+  </script>
+</body>
+</html>

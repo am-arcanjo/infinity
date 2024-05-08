@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Atividade de Produtos para testar as funções agregadoras</title>
+  <style>
+    table {
+        margin-top: 20px;
+        border-radius: 4px;
+        margin-left: 10px;
+    }
+
+    table, td, th {
+        border: 1px solid rgb(209, 209, 209);
+        border-collapse: collapse;
+        padding: 10px;
+        border-radius: 4px;
+    }
+
+    * {
+        background-color: rgb(136, 85, 43);
+        color: rgb(171, 171, 171);
+    }
+
+    h1 {
+      margin-left: 10px;
+    }
+      </style>
+</head>
+<body>
+    <!-- 1) A ideia aqui será mostrar o objeto (array) de produtos em forma de tabela, aplicando o desconto do prompt que será feito ao usuário
+
+    -->
+    <main>
+      <h1> Produtos </h1>
+      <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Categoria</th>
+                <th>Preço</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </main>
+</body>
+</html>
+    <script>
+      let produtos = [
+            {nome: "Geladeira", categoria: "Eletrodomesticos", preco: 2500},
+            {nome: "Guarda-Roupa", categoria: "Moveis", preco: 1300},
+            {nome: "Microondas", categoria: "Eletrodomesticos", preco: 450},
+            {nome: "Sofa", categoria: "Moveis", preco: 600},
+            {nome: "Cama", categoria: "Moveis", preco: 1845},
+            {nome: "Notebook", categoria: "Eletronicos", preco: 1845},
+        ]
+
+
+      function mostrarNaTela(elemento, index, array) {
+        let linhaTabela = document.createElement("tr")
+
+        let celulaNome = document.createElement("td")
+        celulaNome.innerText = elemento.nome
+
+        let celulaCategoria = document.createElement("td")
+        celulaCategoria.innerText = elemento.categoria
+
+        let celulaPreco = document.createElement("td")
+        celulaPreco.innerText = elemento.preco
+
+        linhaTabela.append(celulaNome, celulaCategoria, celulaPreco)
+
+        document.querySelector("tbody").append(linhaTabela)
+      }
+
+      produtos.forEach(mostrarNaTela)
+
+      let desconto = Number(prompt("Digite a porcentagem de desconto desejado"));
+
+      let produtosComDesconto = produtos.map(elemento => {
+        return {
+        ...elemento,
+
+        preco: elemento.preco - (elemento.preco * desconto/100)
+
+        };
+      });
+
+      document.querySelector("tbody").innerHTML = '';
+
+      produtosComDesconto.forEach(mostrarNaTela);
+
+    </script>
+</body>
+</html>
