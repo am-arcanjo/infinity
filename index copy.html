@@ -3,17 +3,34 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Javascript 9 - Revisão e continuação Eventos DOM </title>
-</head>
-<body>
-    <!-- Também temos eventos tais quais addEventListener e onClick
-    Servem essencialmente para associar funções de tratamento de eventos a elementos HTML afim de responder a ações tomadas por um usuário. 
-    O addEventListener pode receber alguns tipos de evento:
-    • input -> acionado quando algum valor de campo de entrada muda (input)
-    • mouseover -> acionado conforme o cursor do mouse entra em cima de um determinado elemento HTML
-    • mouseout -> acionado conforme o cursor do mouse sai de cima de um determinado elemento HTML
-    -->
+  <title>Javascript 11 - Objetos HTML</title>
+  <style>
+    * {
+        background-color: rgb(54, 48, 48);
+        color: rgb(206, 218, 225);
+    }
+  </style>
+ <!-- Lembrete que ela trocou a aula 11 com a 12 -->
   <script>
+    //Chaves servem para declarar funções, assim como servem para delimitar o início e o final de um objeto
+    let usuario1 = {
+        nome: "Aline",
+        'propriedade-usando-caractere-proibido': "essa",
+        outroObjeto: {
+            nome: "Objeto de dentro do objeto",
+            maisUmObjeto: {
+                nome: "Objeto dentro do objeto dentro do objeto",
+                'idade-com-hifen': 33
+            }
+        }
+    }
+
+    //Para propriedades com nomes que usam algo 'proibido', é necessário usar o colchete [] e o nome da variável entre aspas simples; também pode ser utilizada para variáveis 'normais', mas precisa das aspas simples igualmente
+
+    console.log(usuario1.nome);
+    console.log(usuario1['propriedade-usando-caractere-proibido'])
+    console.log(usuario1.outroObjeto)
+    console.log(usuario1.outroObjeto.maisUmObjeto['idade-com-hifen'])
 
   </script>
 </body>
