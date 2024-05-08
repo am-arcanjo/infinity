@@ -3,35 +3,28 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Javascript 5 - Arrays</title>
+  <title>Javascript 6 - Arrays (Revisão) e Funções</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <p id="sequencia"></p>
+  <p></p>
   <script>
-    let idadesFuncionarios = [20, 60, 33]
+   //Cheguei atrasada então ele já tava passando alguma espécie de atividade
+   //Peça para o usuário uma n quantidade de números, armazene-os em um array e mostre a média dos números
 
-    //Coloca elemento ou elementos no final do array
-    idadesFuncionarios.push(99, 104, 22)
+   let numeros = [];
+   let quantidade = Number(prompt("Insira quantos números você quer armazenar."))
+   let media = 0;
 
-    //Adiciona elemento ou elementos no início do array
-    idadesFuncionarios.unshift(77, 88, 11)
+   for (let n = 1; n <= quantidade; n++) {
+    numeros.push(Number(prompt(`Digite o ${n}° número`)));
+   }
 
-    //Retira o último elemento e devolve ele
-    idadesFuncionarios.pop()
+   for (let element of numeros) {
+    media += element
+   }
 
-    //Retira o primeiro elemento e devolve ele
-    idadesFuncionarios.shift()
-
-    console.log(idadesFuncionarios);
-
-    //Retira elementos do array de acordo com um índice especificado; tem 3 valores, 2 obrigatórios e outro opcional: o primeiro valor (obrigatório) é a partir de qual índice o splice deve iniciar, o segundo valor (obrigatório) representa o número de elementos a ser retirado, e o terceiro valor (opcional) seria um valor para substituir o valor que será retirado, caso fosse desejada uma substituição ao invés de uma simples remoção
-    idadesFuncionarios.splice(3, 2, 56, 3);
-
-    console.log(idadesFuncionarios)
-
-    //Fala o index de um determinado elemento, caso ele exista no array
-    console.log(idadesFuncionarios.indexOf(56))
+   alert(`Sua média é ${media/quantidade}`)
 
   </script>
 </body>
