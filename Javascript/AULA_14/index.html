@@ -6,14 +6,23 @@
   <title>Javascript 14 - Consumo de API usando Fetch API</title>
   <style>
     * {
-        background-color: rgb(105, 105, 105);
+        background-color: rgb(128, 55, 6);
+        color: rgb(255, 251, 240);
+        margin-left: 4px;
     }
 
     button {
       border-radius: 4px;
       background-color: rgb(137, 85, 46);
       color: rgb(255, 251, 240);
+      transition: 1.1s;
+      margin-bottom: 8px;
     }
+
+    button:hover {
+      background-color: rgb(183, 113, 60);
+    }
+
   </style>
 </head>
 <body>
@@ -21,21 +30,24 @@
       Exemplo da de imagens de cachorro: https://dog.ceo/dog-api/documentation/random
     -->
     <main>
+      <div>
       <p>Se você clickar no botão abaixo, apareça uma foto aleatória de um cachorrinho!</p>
-      <button>Me traga um cachorro</button>
-      <p id="imagemCachorro"></p>
+      <button onclick="mostrarCachorro()">Me traga um cachorro</button>
+      </div>
+      <img id="imagemCachorro"></img>
     </main>
 </body>
 </html>
 <script>
-      let cachorro = document.querySelector("imagemCachorro")
+      let cachorro = document.querySelector("#imagemCachorro")
 
-      //Promise, funciona de forma assíncrona; tem a seção de catch que funciona pra pegar possíveis erros de execução e afins
-      fetch('https://dog.ceo/api/breeds/image/random')
-      .then((resposta) => resposta.json())
-      .then(dado => {cachorro.innerHTML += dado})
-      .catch(erro => console.log(erro))
-
+      //Promise, funciona de forma assíncrona; tem a seção de catch que funciona pra pegar possíveis erros de execução e afins, nesse caso estaremos colocando o fetch em uma função associada ao botão
+      function mostrarCachorro() {
+        fetch('https://dog.ceo/api/breeds/image/random')
+        .then((resposta) => resposta.json())
+        .then(dado => {cachorro.src = `${dado.message}`})
+        .catch(erro => console.log(erro))
+      }
       //Se eu coloco um console.log aqui, apesar dele vir depois do fetch, no devtools ele virá antes, porquê o fetch começa a rodar, continua fazendo seu processo enquanto o código continua no seu processo e vai se 'adiantando'
       console.log("Oláaaa");
     </script>
