@@ -6,23 +6,35 @@
   <title>Javascript 14 - Consumo de API usando Fetch API</title>
   <style>
     * {
-        background-color: rgb(62, 59, 59);
+        background-color: rgb(105, 105, 105);
     }
-      </style>
+
+    button {
+      border-radius: 4px;
+      background-color: rgb(137, 85, 46);
+      color: rgb(255, 251, 240);
+    }
+  </style>
 </head>
 <body>
-    <!-- 
-      
+    <!-- Tem várias APIs públicas na internet pra fins de teste e outros caso queira usar.
+      Exemplo da de imagens de cachorro: https://dog.ceo/dog-api/documentation/random
     -->
     <main>
+      <p>Se você clickar no botão abaixo, apareça uma foto aleatória de um cachorrinho!</p>
+      <button>Me traga um cachorro</button>
+      <p id="imagemCachorro"></p>
     </main>
 </body>
 </html>
-    <script>
-      //Promise, funciona de forma assíncrona
-      fetch('http://localhost:5000/api')
+<script>
+      let cachorro = document.querySelector("imagemCachorro")
+
+      //Promise, funciona de forma assíncrona; tem a seção de catch que funciona pra pegar possíveis erros de execução e afins
+      fetch('https://dog.ceo/api/breeds/image/random')
       .then((resposta) => resposta.json())
-      .then(dado => console.log(dado))
+      .then(dado => {cachorro.innerHTML += dado})
+      .catch(erro => console.log(erro))
 
       //Se eu coloco um console.log aqui, apesar dele vir depois do fetch, no devtools ele virá antes, porquê o fetch começa a rodar, continua fazendo seu processo enquanto o código continua no seu processo e vai se 'adiantando'
       console.log("Oláaaa");
