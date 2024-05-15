@@ -42,6 +42,7 @@
       let cachorro = document.querySelector("#imagemCachorro")
 
       //Promise, funciona de forma assíncrona; tem a seção de catch que funciona pra pegar possíveis erros de execução e afins, nesse caso estaremos colocando o fetch em uma função associada ao botão
+      //Se olharmos a resposta em json, ou seja, o dado, ele 'devolve' para a gente um message (que é a url da imagem gerada randomicamente) e um status, e essas duas características 'devolvidas' são exatamente o que a API nos conta que será enviado para a gente na sua documentação, essa resposta vai variar de acordo com o funcionamento da API
       function mostrarCachorro() {
         fetch('https://dog.ceo/api/breeds/image/random')
         .then((resposta) => resposta.json())
