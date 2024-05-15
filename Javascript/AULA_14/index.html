@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Javascript 14 - Consumo de API usando Fetch API</title>
+  <style>
+    * {
+        background-color: rgb(62, 59, 59);
+    }
+      </style>
+</head>
+<body>
+    <!-- 
+      
+    -->
+    <main>
+    </main>
+</body>
+</html>
+    <script>
+      //Promise, funciona de forma assíncrona
+      fetch('http://localhost:5000/api')
+      .then((resposta) => resposta.json())
+      .then(dado => console.log(dado))
+
+      //Se eu coloco um console.log aqui, apesar dele vir depois do fetch, no devtools ele virá antes, porquê o fetch começa a rodar, continua fazendo seu processo enquanto o código continua no seu processo e vai se 'adiantando'
+      console.log("Oláaaa");
+    </script>
+</body>
+</html>
