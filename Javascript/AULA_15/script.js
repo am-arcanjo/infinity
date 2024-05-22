@@ -23,7 +23,9 @@ function captarPokemon() {
         .then(resposta => resposta.json())
         .then(poke => {
             containerPokemons.innerHTML += 
-            `<img src="${poke.sprites.versions["genaration-v"]["black-white"].animated.front_default}"/>`
+            `<img src="${poke.sprites.versions["generation-v"]["black-white"].animated.front_default}"/>`
         })
     }
 }
+
+captarPokemons()
