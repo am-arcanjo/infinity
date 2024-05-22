@@ -1,0 +1,17 @@
+* {
+    background-color: rgb(78, 7, 7);
+    color: rgb(255, 251, 240);
+    margin-left: 4px;
+}
+
+button {
+  border-radius: 4px;
+  background-color: rgb(137, 85, 46);
+  color: rgb(255, 251, 240);
+  transition: 1.1s;
+  margin-bottom: 8px;
+}
+
+button:hover {
+  background-color: rgb(183, 113, 60);
+}
