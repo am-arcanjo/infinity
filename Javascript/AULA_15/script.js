@@ -22,9 +22,11 @@ function captarPokemon() {
         fetch(pokemon.url)
         .then(resposta => resposta.json())
         .then(poke => {
-            const pokemonType = poke.types[0].type.name;
+            let pokemonTypes = poke.types.map(t => t.type.name);
+            let pokemonTypeClass = pokemonTypes.join('');
+
             containerPokemons.innerHTML += 
-            `<div class="pokemon type-${pokemonType}">
+            `<div class="pokemon type-${pokemonTypeClass}">
             <img src="${poke.sprites.versions["generation-v"]["black-white"].animated.front_default}"/>
 
             <h4>${poke.name}</h4>

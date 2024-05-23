@@ -2,6 +2,14 @@
     margin-left: 4px;
     padding: 4px;
     box-sizing: border-box;
+    font-family: Kanit;
+}
+
+header {
+    padding: 40px;
+    background-color: rgb(122, 162, 227);
+    border-radius: 4px;
+    font-size: 50px;
 }
 
 body {
@@ -44,6 +52,10 @@ body {
     border-radius: 4px;
 }
 
+.normal {
+    color: grey;
+}
+
 .grass {
     color: rgb(5, 95, 5);
 }
@@ -69,7 +81,7 @@ body {
 }
 
 .electric {
-    color: rgb(219, 206, 31);
+    color: rgb(210, 184, 78);
 }
 
 .fairy {
@@ -82,6 +94,10 @@ body {
 
 .ground {
     color: rgb(158, 111, 10);
+}
+
+.pokemons .pokemon.type-normal {
+    border-color: grey;
 }
 
 .pokemons .pokemon.type-grass {
@@ -109,7 +125,7 @@ body {
 }
 
 .pokemons .pokemon.type-electric {
-    border-color: rgb(219, 206, 31);
+    border-color: rgb(210, 184, 78);
 }
 
 .pokemons .pokemon.type-fairy {
@@ -124,8 +140,51 @@ body {
     color: rgb(158, 111, 10);
 }
 
-.pokemon.type-grass.type-poison {
+.pokemon.type-grasspoison {
     border-left-color: rgb(5, 95, 5);
-    border-top-color: rgb(68, 5, 68);
+    border-top-color: rgb(5, 95, 5);
+    border-right-color: rgb(68, 5, 68);
+    border-bottom-color:rgb(68, 5, 68);
 }
 
+.pokemon.type-fireflying {
+    border-left-color: rgb(154, 3, 3);
+    border-top-color:  rgb(154, 3, 3);
+    border-right-color: rgb(116, 147, 182);
+    border-bottom-color: rgb(116, 147, 182);
+}
+
+.pokemon.type-bugflying {
+    border-left-color: rgb(8, 88, 8);
+    border-top-color: rgb(8, 88, 8);
+    border-right-color: rgb(116, 147, 182);
+    border-bottom-color: rgb(116, 147, 182);
+}
+
+.pokemon.type-bugpoison {
+    border-left-color: rgb(8, 88, 8);
+    border-top-color: rgb(8, 88, 8);
+    border-right-color: rgb(68, 5, 68);
+    border-bottom-color: rgb(68, 5, 68);
+}
+
+.pokemon.type-poisonground {
+    border-left-color:  rgb(158, 111, 10);
+    border-top-color:  rgb(158, 111, 10);
+    border-right-color: rgb(68, 5, 68);
+    border-bottom-color: rgb(68, 5, 68);
+}
+
+.pokemon.type-normalfairy {
+    border-left-color: grey;
+    border-top-color: grey;
+    border-right-color: rgb(243, 145, 161);
+    border-bottom-color: rgb(243, 145, 161);
+}
+
+.pokemon.type-normalflying {
+    border-left-color: grey;
+    border-top-color: grey;
+    border-right-color: rgb(116, 147, 182);
+    border-bottom-color: rgb(116, 147, 182);
+}
