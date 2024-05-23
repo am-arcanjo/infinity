@@ -1,17 +1,131 @@
 * {
-    background-color: rgb(78, 7, 7);
-    color: rgb(255, 251, 240);
     margin-left: 4px;
+    padding: 4px;
+    box-sizing: border-box;
 }
 
-button {
-  border-radius: 4px;
-  background-color: rgb(137, 85, 46);
-  color: rgb(255, 251, 240);
-  transition: 1.1s;
-  margin-bottom: 8px;
+body {
+    background-color: rgb(167, 192, 231);
 }
 
-button:hover {
-  background-color: rgb(183, 113, 60);
+.pokemons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 3rem;
 }
+
+.pokemons .pokemon {
+    background-color:  rgb(216, 216, 216);
+    width: 150px;
+    height: 300px;
+    border: 2px solid rgb(103, 87, 87);
+    box-shadow: 0 0 5 gray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 18px;
+    border-radius: 6px;
+}
+
+.pokemons .pokemon img {
+    width: 100%;
+    height: 60%;
+}
+
+.pokemons .pokemon h4 {
+    margin-top: 0.5rem;
+    font-size: 20px;
+}
+
+.type {
+    padding: 0.5rem;
+    border-radius: 4px;
+}
+
+.grass {
+    color: rgb(5, 95, 5);
+}
+
+.fire {
+    color: rgb(154, 3, 3);
+}
+
+.poison {
+    color: rgb(68, 5, 68)
+}
+
+.flying {
+    color: rgb(116, 147, 182);
+}
+
+.water {
+    color:  rgb(38, 101, 163);
+}
+
+.psychic {
+    color: rgb(81, 29, 132);
+}
+
+.electric {
+    color: rgb(219, 206, 31);
+}
+
+.fairy {
+    color: rgb(243, 145, 161);
+}
+
+.bug {
+    color: rgb(8, 88, 8);
+}
+
+.ground {
+    color: rgb(158, 111, 10);
+}
+
+.pokemons .pokemon.type-grass {
+    border-color: rgb(5, 95, 5);
+}
+
+.pokemons .pokemon.type-fire {
+    border-color: rgb(154, 3, 3);
+}
+
+.pokemons .pokemon.type-poison {
+    border-color: rgb(68, 5, 68)
+}
+
+.pokemons .pokemon.type-flying {
+    border-color: rgb(116, 147, 182);
+}
+
+.pokemons .pokemon.type-water {
+    border-color: rgb(38, 101, 163);
+}
+
+.pokemons .pokemon.type-psychic {
+    border-color: rgb(81, 29, 132);
+}
+
+.pokemons .pokemon.type-electric {
+    border-color: rgb(219, 206, 31);
+}
+
+.pokemons .pokemon.type-fairy {
+    border-color: rgb(243, 145, 161);
+}
+
+.pokemons .pokemon.type-bug {
+    border-color: rgb(8, 88, 8);
+}
+
+.pokemons .pokemon.type-ground {
+    color: rgb(158, 111, 10);
+}
+
+.pokemon.type-grass.type-poison {
+    border-left-color: rgb(5, 95, 5);
+    border-top-color: rgb(68, 5, 68);
+}
+

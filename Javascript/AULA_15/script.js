@@ -22,8 +22,18 @@ function captarPokemon() {
         fetch(pokemon.url)
         .then(resposta => resposta.json())
         .then(poke => {
+            const pokemonType = poke.types[0].type.name;
             containerPokemons.innerHTML += 
-            `<img src="${poke.sprites.versions["generation-v"]["black-white"].animated.front_default}"/>`
+            `<div class="pokemon type-${pokemonType}">
+            <img src="${poke.sprites.versions["generation-v"]["black-white"].animated.front_default}"/>
+
+            <h4>${poke.name}</h4>
+
+            <div class="types">
+                ${poke.types.map(item => `<span class="type ${item.type.name}">${item.type.name}</span>`).join('')}
+            </div>
+            <br>
+            `
         })
     }
 }
