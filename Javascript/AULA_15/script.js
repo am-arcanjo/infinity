@@ -3,8 +3,8 @@
 
 const BASE_API_URL = "https://pokeapi.co/api/v2"
 
-
 const containerPokemons = document.querySelector(".pokemons");
+const pokemonsTypeSelect = document.querySelector(".pokemonsTypeSelect");
 let pokemons = [];
 
 function captarPokemons() {
@@ -38,6 +38,14 @@ function captarPokemon() {
             `
         })
     }
+}
+
+function filtrarPokemonsPorTipo() {
+    fetch(`${BASE_API_URL}/pokemon?limit=40/${pokemonsTypeSelect}`)
+    .then((resposta) => resposta.json())
+    .then(dado => {
+        pokemons = dado.results
+    })
 }
 
 captarPokemons()
