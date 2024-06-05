@@ -1,0 +1,15 @@
+* {
+    margin-left: 4px;
+    padding: 4px;
+    box-sizing: border-box;
+    font-family: Kanit;
+    background-color: rgb(65, 80, 80);
+}
+
+header {
+    padding: 40px;
+    border-radius: 4px;
+    font-size: 50px;
+}
+
+
