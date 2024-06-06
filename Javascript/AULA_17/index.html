@@ -4,6 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Javascript 17 - Penúltima aula de Javascript</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style.css"/>
 </head>
 <body>
@@ -13,13 +16,34 @@
       Roboto
       Poppins
       Open Sans
+
     -->
-    <main>
+    <header>
+      <h1>FakeStore</h1>
+
       <div>
-      <p></p>
-      <button onclick=""></button>
+        <button>Homepage</button>
+        <button>Products</button>
+        <button>Login</button>
+
+        <div class="shoppingCart">
+        <img src="./shoppingCart.svg"/>
+        <span class="shoppingCartQuantity">0</span>
+        </div>
       </div>
-    </main>      
+    </header>
+    <aside>
+      <h2 class="categoriesHeader">Categories</h2>
+      <div class="categories"></div>
+    </aside>
+    <main>
+      <h2 class="ourStuff">Our stuff</h2>
+      <section class="productsList"></section>
+    </main>
+    <footer>
+      <p>&copy; FakeStore, 2024. All copyrights reserved.</p>
+    </footer>
+
     <script src="./script.js"></script>
 </body>
 </html>

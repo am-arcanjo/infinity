@@ -1,15 +1,86 @@
 * {
-    margin-left: 4px;
-    padding: 4px;
+    margin-left: 0;
+    padding: 0;
     box-sizing: border-box;
-    font-family: Kanit;
+    font-family: Roboto;
     background-color: rgb(65, 80, 80);
+    color: rgb(218, 225, 229);
+}
+
+body {
+    min-height: 100vh;
+    background-color: rgb(65, 80, 80);
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    grid-template-areas: "header header"
+                         "aside main"
+                         "footer footer";
+    grid-template-rows: 6rem 1fr 6rem;                         
+}
+
+button {
+    cursor: pointer;
 }
 
 header {
-    padding: 40px;
-    border-radius: 4px;
-    font-size: 50px;
+    grid-area: header;
+    background-color: rgb(65, 80, 80);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+header > div {
+    display: flex;
+    gap: 1.5rem;
+}
+
+header > div > button {
+    border: none;
+    background-color: transparent;
+    font-size: 1.5rem;
+}
+
+.shoppingCart {
+    position: relative;
+}
+
+.shoppingCart > span {
+    position: absolute;
+    right: -0.5rem;
+    top: -0.4rem;
+    background-color:  rgb(85, 107, 107);
+    padding: 3px 6px;
+    border-radius: 50%;
+    font-size: 9.3px;
+}
+
+aside {
+    grid-area: aside;
+    background-color: rgb(68, 83, 83);
+    padding: 1.5rem;
+}
+
+main {
+    grid-area: main;
+    background-color: rgb(68, 83, 83);
+    padding: 1.5rem 2rem;
+}
+
+.categoriesHeader, .ourStuff {
+    background-color:  rgb(68, 83, 83);
+}
+
+footer {
+    grid-area: footer;
+    display: flex;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.2rem;
 }
 
 
