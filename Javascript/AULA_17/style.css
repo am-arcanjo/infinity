@@ -109,6 +109,11 @@ main > section > div > div > p {
     background-color: rgb(78, 94, 94);
 }
 
+.product > img {
+    width: 100%;
+    height: 70%;
+}
+
 footer {
     grid-area: footer;
     display: flex;
