@@ -50,7 +50,7 @@ header > div > button {
     position: absolute;
     right: -0.5rem;
     top: -0.4rem;
-    background-color:  rgb(85, 107, 107);
+    background-color:  rgb(63, 111, 111);
     padding: 3px 6px;
     border-radius: 50%;
     font-size: 9.3px;
@@ -64,13 +64,30 @@ aside {
 
 main {
     grid-area: main;
-    background-color: rgb(68, 83, 83);
+    background-color: rgb(78, 94, 94);
     padding: 1.5rem 2rem;
 }
 
-.categoriesHeader, .ourStuff {
+main > section > div {
+    background-color: rgb(78, 94, 94);
+}
+
+main > section > div > h4 {
+    background-color: rgb(78, 94, 94);
+}
+
+main > section > div > div > p {
+    background-color: rgb(78, 94, 94);
+}
+
+.categoriesHeader {
     background-color:  rgb(68, 83, 83);
 }
+
+.ourStuff {
+    background-color: rgb(78, 94, 94);
+}
+
 
 footer {
     grid-area: footer;
