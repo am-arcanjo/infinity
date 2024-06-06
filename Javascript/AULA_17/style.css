@@ -62,6 +62,23 @@ aside {
     padding: 1.5rem;
 }
 
+.categories label {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    background-color: rgb(68, 83, 83);
+}
+
+.categories input {
+    width: 1.2rem;
+    background-color: rgb(68, 83, 83);
+}
+
+.categories {
+    background-color: rgb(68, 83, 83);
+}
+
 main {
     grid-area: main;
     background-color: rgb(78, 94, 94);
@@ -88,6 +105,9 @@ main > section > div > div > p {
     background-color: rgb(78, 94, 94);
 }
 
+.shoppingCartForProduct {
+    background-color: rgb(78, 94, 94);
+}
 
 footer {
     grid-area: footer;
