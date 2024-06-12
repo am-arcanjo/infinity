@@ -4,6 +4,7 @@
 const shoppingCartQuantity = document.querySelector(".shoppingCartQuantity")
 const containerCategories = document.querySelector(".categories")
 const containerProducts = document.querySelector(".productsList")
+const containerCart = document.querySelector(".cartItems")
 const BASE_API = "https://fakestoreapi.com"
 
 let storageCart = localStorage.getItem('shoppingCart')
@@ -107,7 +108,7 @@ function addInShoppingCart(idProduct) {
     }
 
     shoppingCartQuantity.innerHTML = shoppingCart.length
-    
+
     saveInStorage()
 
 }

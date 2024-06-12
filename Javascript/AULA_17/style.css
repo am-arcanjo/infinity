@@ -3,7 +3,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Roboto;
-    background-color: rgb(65, 80, 80);
     color: rgb(218, 225, 229);
 }
 
@@ -60,8 +59,8 @@ header > div > button {
     position: absolute;
     right: 0;
     background-color: white;
-    border: 1px solid gray;
-    box-shadow: 0 0 10px gray;
+    border: 1px solid rgb(95, 95, 95);
+    box-shadow: 0 0 10px rgb(95, 95, 95);
     padding: 1rem;
     border-radius: 4px;
     width: 300px;
@@ -74,7 +73,6 @@ header > div > button {
     padding: 0.7rem;
     font-size: 1.1rem;
     border: none;
-    background-color: rgb(211, 164, 255);
 }
 
 .shoppingCart:hover .finishCart,
