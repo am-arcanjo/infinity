@@ -29,7 +29,7 @@ async function getProducts() {
 }
 
 function showProducts(productsArray = products) {
-    containerProducts.innerHTML = '-'
+    containerProducts.innerHTML = ''
 
     productsArray.forEach(product => {
         containerProducts.innerHTML += `

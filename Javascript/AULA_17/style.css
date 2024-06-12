@@ -132,6 +132,7 @@ main > section > div > div > p > button {
     flex-wrap: wrap;
     gap: 2rem;
     margin-top: 2rem;
+    background-color: rgb(78, 94, 94);
 }
 
 .product h4 {
