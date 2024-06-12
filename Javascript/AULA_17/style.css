@@ -56,6 +56,65 @@ header > div > button {
     font-size: 9.3px;
 }
 
+.finishCart {
+    position: absolute;
+    right: 0;
+    background-color: white;
+    border: 1px solid gray;
+    box-shadow: 0 0 10px gray;
+    padding: 1rem;
+    border-radius: 4px;
+    width: 300px;
+    display: none;
+}
+
+.finishCart > button {
+    width: 100%;
+    margin-top: 2rem;
+    padding: 0.7rem;
+    font-size: 1.1rem;
+    border: none;
+    background-color: rgb(211, 164, 255);
+}
+
+.shoppingCart:hover .finishCart,
+.finishCart:hover {
+    display: block;
+}
+
+.cartProduct {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.cartProduct:not(:last-of-type) {
+    border-bottom: 1px solid gray;
+}
+
+.cartProduct .quantity {
+    width: 75px;
+    display: flex;
+}
+
+.cartProduct .quantity button {
+    width: 33%;
+    font-size: 1.4rem;
+}
+
+.cartProduct .quantity input {
+    width: 33%;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+
+.cartProduct img {
+    width: 4rem;
+}
+
 aside {
     grid-area: aside;
     background-color: rgb(68, 83, 83);
@@ -82,7 +141,7 @@ aside {
 main {
     grid-area: main;
     background-color: rgb(78, 94, 94);
-    padding: 1.5rem 2rem;
+    padding: 3rem 2rem;
 }
 
 main > section > div {
@@ -104,6 +163,7 @@ main > section > div > div > p {
 main > section > div > div > p > button {
     background-color: rgb(78, 94, 94);
 }
+
 .categoriesHeader {
     background-color:  rgb(68, 83, 83);
 }
@@ -116,6 +176,13 @@ main > section > div > div > p > button {
     background-color: rgb(78, 94, 94);
 }
 
+.productsList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+    background-color: rgb(78, 94, 94);
+}
 
 .product > img {
     width: 100%;
@@ -127,13 +194,6 @@ main > section > div > div > p > button {
     background-color: rgb(78, 94, 94);
 }
 
-.productsList {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    margin-top: 2rem;
-    background-color: rgb(78, 94, 94);
-}
 
 .product h4 {
     font-size: 1.2rem;
