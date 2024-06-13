@@ -20,6 +20,7 @@ function showToast(message) {
     toast.innerHTML = message
 
     setTimeout(() => {
+        toast.innerHTML = ''
         toast.style.transform = "translate(150px)"
     }, 3000)
 }
