@@ -19,6 +19,11 @@
 
       Sim, Jewelry na API deles está escrito errado
     -->
+    <div class="modal">
+      <div class="modalContent">
+        <button class="closeModal" onclick="closeModal()">X</button>
+      </div>
+    </div>
     <header>
       <h1>FakeStore</h1>
 
@@ -32,10 +37,16 @@
         <span class="shoppingCartQuantity">0</span>
           <div class="finishCart">
             <div class="cartItems">
-              <button>Finalizar compra</button>
+              <button onclick="openModal()">Finalizar compra</button>
+
+              <div class="checkoutItems"></div>
+
+              <button onclick="finishShopping()">Realizar Compra</button>
             </div>
           </div>
         </div>
+
+        <div class="toast"></div>
     </header>
     <aside>
       <h2 class="categoriesHeader">Categories</h2>

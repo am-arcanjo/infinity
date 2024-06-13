@@ -5,6 +5,8 @@ const shoppingCartQuantity = document.querySelector(".shoppingCartQuantity")
 const containerCategories = document.querySelector(".categories")
 const containerProducts = document.querySelector(".productsList")
 const containerCart = document.querySelector(".cartItems")
+const modal = document.querySelector(".modal")
+const toast = document.querySelector(".toast");
 const BASE_API = "https://fakestoreapi.com"
 
 let storageCart = localStorage.getItem('shoppingCart')
@@ -13,8 +15,36 @@ let shoppingCart = storageCart ? JSON.parse(storageCart) : []
 let products = []
 shoppingCartQuantity.innerHTML = shoppingCart.length
 
+function showToast(message) {
+    toast.style.transform = "translate(0)"
+    toast.innerHTML = message
+
+    setTimeout(() => {
+        toast.style.transform = "translate(150px)"
+    }, 3000)
+}
+
+function openModal() {
+    modal.computedStyleMap.display = "flex"
+}
+
+function closeModal() {
+        modal.computedStyleMap.display = "none"
+}
+
+function finishShopping() {
+    shoppingCart = []
+
+    saveInStorage()
+
+    closeModal()
+
+    showToast("Compra realizada com sucesso!")
+}
+    
 function saveInStorage() {
     localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart))
+    shoppingCartQuantity.innerHTML = shoppingCart.length
 
     containerCart.innerHTML = ''
 
@@ -36,12 +66,26 @@ function saveInStorage() {
 }
 
 function decreaseQuantity(itemId) {
-    // Procurar o item no carrinho para verificar a quantidade 
-    // se por um acaso a quantidade do item for 1, eu vou retirar ele do array carrinho
-    //filter
+    const productInCart = shoppingCart.find(item => item.id === itemId)
 
-    // Se a quantidade ainda for maior que 1, eu diminuo a quantidade normalmente
-    //Atualizo a tela para o usuario ver e salvo no armazenamento local
+    if (productInCart.quantity === 1) {
+        const confirmRemoval = confirm("Tem certeza de que quer retirar esse produto?")
+        
+        if (confirmRemoval) {
+            shoppingCart = shoppingCart.filter(item => item.id != itemId)
+        }
+    }
+    else {
+        shoppingCart = shoppingCart.map(item => {
+            if (item.id === itemId) {
+                item.quantity -= 1
+            }
+            return item;
+        })
+    }
+
+    saveInStorage()
+
 }
 
 function increaseQuantity(itemId) {
