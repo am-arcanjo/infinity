@@ -10,3 +10,6 @@
 Um algoritmo é uma sequência de instruções bem definidas, normalmente usadas para resolver problemas de matemática específicos, executar tarefas, ou para realizar cálculos e equações.
 Agora, a lógica (contexto: progrmação) é a forma como serão organizados esse algoritmos para solcuonar problemas e/ou atingir algum resultado desejado.
 
+- Variáveis
+Nome para um dado que será declarado/recebido, e que pode variar ao longo da execução do código. Aloca um espaço na memória.
+
