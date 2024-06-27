@@ -37,17 +37,16 @@
 
 # Escreva um programa que verifica o número do mês digitado pelo usuário e imprime a estação do ano correspondente.
 
-#Outono: de março a maio, Inverno: de Junho a Agosto, Primavera: de setembro a novembro e Verão: de dezembro a fevereiro
+# #Outono: de março a maio, Inverno: de Junho a Agosto, Primavera: de setembro a novembro e Verão: de dezembro a fevereiro
 
 # mes = input('Por favor, digite um mês qualquer: ')
 
-# if (mes == 'Dezembro' or mes == 'Janeiro' or mes == 'Fevereiro'):
+# if (mes in 'Dezembro' or mes in 'Janeiro' or mes in 'Fevereiro'):
 #     print('Este mês pertence ao Verão!')
-# elif(mes == 'Março' or mes == 'Abril' or mes == 'Maio'):
+# elif(mes in 'Março' or mes in 'Abril' or mes in 'Maio'):
 #     print('Este mês pertence ao Outono!')
-# elif(mes == 'Junho' or mes == 'Julho' or mes == 'Agosto'):
+# elif(mes in 'Junho' or mes in 'Julho' or mes in 'Agosto'):
 #     print('Este mês pertence ao Inverno!')   
-# elif(mes == 'Setembro' or mes == 'Outubro' or mes == 'Novembro'):
+# elif(mes in 'Setembro' or mes in 'Outubro' or mes in 'Novembro'):
 #     print('Este mês pertence à Primavera!')
 
-#Eu acidentalmente esqueci de olhar o In e not in
