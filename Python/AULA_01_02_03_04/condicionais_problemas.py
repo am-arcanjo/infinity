@@ -18,11 +18,11 @@
 #EXERCÍCIO RELACIONADO
 # Escreva um programa que verifica se o a idade digitada pelo usuário indica que ele é obrigado a votar (maior ou igual a 18 anos) ou não, e imprima uma mensagem correspondente.
 
-idade_usuario = int(input('Quantos anos você tem? '))
+# idade_usuario = int(input('Quantos anos você tem? '))
 
-obrigatoriedade = 'Você é obrigado a votar!' if idade_usuario >= 18 else 'Você não é obrigado a votar.'
+# obrigatoriedade = 'Você é obrigado a votar!' if idade_usuario >= 18 else 'Você não é obrigado a votar.'
 
-print(obrigatoriedade)
+# print(obrigatoriedade)
 
 #PROBLEMA 2
-# 
+# seria sobre if, elif e else, mas precisei ir
