@@ -21,3 +21,15 @@
 #
 # listaNumeros.pop(2)
 # print(listaNumeros)
+
+
+# 6- Faça um Programa que leia um vetor de 5 números inteiros e mostre-os.
+
+
+
+# 7- Dada a lista lista = [10, 20, 30, 40, 50], escreva a expressão para verificar se o número 30 está na lista.
+
+# lista = [10, 20, 30, 40, 50]
+# for numero in lista:
+#     if(numero == 30):
+#         print("Têm-se o número 30 na lista!")
