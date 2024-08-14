@@ -31,5 +31,21 @@
 
 # Escreva um programa que conte quantas vogais estão presentes em uma String fornecida por um usuário
 
-phrase = input("Digite uma palavrat ou frase e contaremos as vogais: ")
-print(phrase.count("a"))
+# phrase = input("Digite uma palavra ou frase e contaremos as vogais: ")
+# print(phrase.count("a") + 
+#       phrase.count("e") + 
+#       phrase.count("i") + 
+#       phrase.count("o") + 
+#       phrase.count("u"))
+
+
+
+# Escreva um programa que conte quantas vezes uma determinada letra aparece em uma string de escolha do usuário.
+
+phrase = input("Digite uma palavra ou frase: ")
+char = input("Digiteuma letra e te diremos quantas ocorrências dela tem na sua palavra: ")
+
+if(len(char)  > 1):
+    print("Somente uma letra é aceita!")
+
+print(phrase.count(char))
