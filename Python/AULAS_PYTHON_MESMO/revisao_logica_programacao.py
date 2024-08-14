@@ -31,5 +31,5 @@
 
 # Escreva um programa que conte quantas vogais estão presentes em uma String fornecida por um usuário
 
-phrase = input("Digite uma palavra ou frase e contaremos as vogais: ")
+phrase = input("Digite uma palavrat ou frase e contaremos as vogais: ")
 print(phrase.count("a"))
