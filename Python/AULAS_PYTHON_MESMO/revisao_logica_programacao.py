@@ -42,10 +42,10 @@
 
 # Escreva um programa que conte quantas vezes uma determinada letra aparece em uma string de escolha do usuário.
 
-phrase = input("Digite uma palavra ou frase: ")
-char = input("Digiteuma letra e te diremos quantas ocorrências dela tem na sua palavra: ")
+# phrase = input("Digite uma palavra ou frase: ")
+# char = input("Digiteuma letra e te diremos quantas ocorrências dela tem na sua palavra: ")
 
-if(len(char)  > 1):
-    print("Somente uma letra é aceita!")
+# if(len(char)  > 1):
+#     print("Somente uma letra é aceita!")
 
-print(phrase.count(char))
+# print(phrase.count(char))
