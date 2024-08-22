@@ -55,8 +55,8 @@
 # 6 - Crie uma função chamada celsius_para_fahrenheit que receba um parâmetro celsius.
 # A função deve retornar a temperatura em Fahrenheit, calculada pela fórmula fahrenheit = (celsius * 9/5) + 32.
 
-def celsius_para_farenheit(celsius: float):
-    print((celsius * 9/5) + 32)
+# def celsius_para_farenheit(celsius: float):
+#     print((celsius * 9/5) + 32)
 
-celsius_para_farenheit(-40)
+# celsius_para_farenheit(-40)
 # Fun fact: -40 é a única temperatura onde tanto em Farenheit quanto em Celsius temos o mesmo valor.
