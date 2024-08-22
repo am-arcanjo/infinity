@@ -28,4 +28,4 @@ def mensagem(mensagem: str):
 mensagem_a_modificar = mensagem("uau!")
 
 print(mensagem_a_modificar.upper())
-print(mensagem_a_modificar.lower())    
+print(mensagem_a_modificar.lower())
