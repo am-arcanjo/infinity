@@ -80,5 +80,56 @@
 
 # 8 - Crie uma função lambda que substitua todas as ocorrências de um caractere 'a' por 'o' em uma string dada
 
-substitui = lambda texto: texto.replace("a", "o")
-print(substitui("Parca"))
+# substitui = lambda texto: texto.replace("a", "o")
+# print(substitui("Parca"))
+
+
+
+# Caso queiramos passar uma função com um número variável de argumentos, podemos usar o *args e o **kwargs
+
+# *args serve para passar uma quantidade de variável de argumentos posicionais
+# **kwargs serve para passar um número variado de argumentos nomeados (argumentos que funcionam através de chave-valor)
+
+# Exemplos:
+
+# def lista_de_materiais(*materiais):
+#     print("Materiais necessários para a sessão de estudos: ")
+#     for material in materiais:
+#         print(f"- {material}")
+
+# lista_de_materiais("Laptop", "Mouse", "Teclado", "Monitor")
+
+
+# def nome_e_cidade(**kwargs):
+#     for chave, valor in kwargs.items():
+#         print(f"{chave}: {valor}")
+
+# nome_e_cidade(nome= "Annabella", cidade="Juiz de Fora", nome2="Letícia", cidade2="Capadócia")
+
+
+# Exercícios de Args e Kwargs, não colocarei todos pois a aplicação é bem enxuta e normalmente só aparece em contextos específicos de algumas empresas
+
+# 1 - Args - Crie uma função soma_numeros que aceite um número variável de argumentos e retorne a soma de todos eles
+
+# def soma_numeros(*args):
+#     total = 0
+#     for numero in args:
+#         total += numero
+#     return total
+
+# print(soma_numeros(56, 77, 12, 1, 54, 200))
+
+
+# 3 - Kwargs - Crie uma função filtrar_valores que recebe vários pares chave-valor e devolve somente aqueles cujo valor sejamaior do que 10.
+
+# def filtrar_valores(**kwargs):
+#     for chave, valor in kwargs.items():
+#         if valor > 10:
+#             print(f"{chave}: {valor}")
+
+# filtrar_valores(num1= 15, num2 = 9, num3= 2, num4= 67, num5=2, num6= 16)
+
+
+
+
+
