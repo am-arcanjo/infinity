@@ -15,16 +15,15 @@ def continuar_selecao():
     print(selecao)
     return selecao
 
-def adicionar_cliente(nome: str, email: str):
-    compras = []
+def adicionar_cliente(nome: str, email: str, compras = []):
     cliente = {"Nome": nome, "E-mail": email, "Compras": compras}
     clientes.append(cliente)
 
 def remover_cliente(nome: str):
     ocorrencias = 0
     for cliente in clientes:
-        if(cliente.nome == nome):
-            clientes.pop(cliente)
+        if(cliente["Nome"] == nome):
+            clientes.remove(cliente)
             ocorrencias += 1
     if ocorrencias == 0:
         print("O cliente não existe, então não é possível remover o mesmo.")
@@ -33,7 +32,7 @@ def remover_cliente(nome: str):
 def buscar_cliente(nome: str):
     ocorrencias = 0
     for cliente in clientes:
-        if(cliente.nome == nome):
+        if(cliente["Nome"] == nome):
             print(cliente)
             ocorrencias += 1
     if ocorrencias == 0:
@@ -41,15 +40,15 @@ def buscar_cliente(nome: str):
 
 def listar_clientes():
     for cliente in clientes:
-        print(cliente.nome)
-        print(cliente.email)
+        print("Nome do cliente: " + cliente["Nome"] + "\n" + "E-mail do cliente: " + cliente["E-mail"] + "\n")
+     
 
 def registrar_compras(nome: str):
     ocorrencias = 0
     for cliente in clientes:
-        if(cliente.nome == nome):
+        if(cliente["Nome"] == nome):
             compra = input("Qual foi o produto adquirido pelo cliente? ")
-            cliente.compras.append(compra)
+            cliente["Compras"].append(compra)
             ocorrencias += 1
     if ocorrencias == 0:
         print("Não existe cliente com o nome inserido.")
@@ -57,9 +56,9 @@ def registrar_compras(nome: str):
 def ver_historico_compras(nome: str):
     ocorrencias = 0
     for cliente in clientes:
-        if cliente.nome == nome and cliente.compras.length != 0:
-            print(cliente.compras)
-        elif cliente.nome == nome and cliente.compras.length == 0:
+        if cliente["Nome"] == nome and len(cliente["Compras"]) != 0:
+            print(cliente["Compras"])
+        elif cliente["Nome"] == nome and len(cliente["Compras"]) == 0:
             print("Este cliente não comprou nada ainda.")
     if ocorrencias == 0:
         print("Não existe cliente com o nome inserido.")        
@@ -67,18 +66,18 @@ def ver_historico_compras(nome: str):
 def cliente_com_mais_compras(nome = "", email = "", compras = 0):
     cliente_mais_compras = {"Nome": nome, "E-mail": email,"Compras": compras}
     for cliente in clientes:
-        if cliente.compras.length > cliente_mais_compras.compras:
-            cliente_mais_compras.compras = cliente.compras
-            cliente_mais_compras.nome = cliente.nome
-            cliente_mais_compras.email = cliente.email
-    print("Nome do cliente: " + cliente_mais_compras.nome + "\n" + "E-mail do cliente: " + cliente_mais_compras.email)        
+        if len(cliente["Compras"]) > len(cliente_mais_compras["Compras"]):
+            cliente_mais_compras["Compras"] = cliente["Compras"]
+            cliente_mais_compras["Nome"] = cliente["Nome"]
+            cliente_mais_compras["E-mail"] = cliente["E-mail"]
+    print("Nome do cliente: " + cliente_mais_compras["Nome"] + "\n" + "E-mail do cliente: " + cliente_mais_compras["E-mail"])        
 
 def total_clientes():
     print(clientes.length)
 
 def sair():
+    global isContinue
     isContinue = False
-    clientes = []
     print("Você saiu.")
     return isContinue
 
