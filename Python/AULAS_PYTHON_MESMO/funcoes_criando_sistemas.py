@@ -15,8 +15,8 @@ def continuar_selecao():
     print(selecao)
     return selecao
 
-def adicionar_cliente(nome: str, email: str, compras = []):
-    cliente = {"Nome": nome, "E-mail": email, "Compras": compras}
+def adicionar_cliente(nome: str, email: str):
+    cliente = {"Nome": nome, "E-mail": email, "Compras": []}
     clientes.append(cliente)
 
 def remover_cliente(nome: str):
@@ -46,7 +46,7 @@ def listar_clientes():
 def registrar_compras(nome: str):
     ocorrencias = 0
     for cliente in clientes:
-        if(cliente["Nome"] == nome):
+        if cliente["Nome"] == nome:
             compra = input("Qual foi o produto adquirido pelo cliente? ")
             cliente["Compras"].append(compra)
             ocorrencias += 1
@@ -58,12 +58,14 @@ def ver_historico_compras(nome: str):
     for cliente in clientes:
         if cliente["Nome"] == nome and len(cliente["Compras"]) != 0:
             print(cliente["Compras"])
+            ocorrencias += 1
         elif cliente["Nome"] == nome and len(cliente["Compras"]) == 0:
             print("Este cliente não comprou nada ainda.")
+            ocorrencias += 1
     if ocorrencias == 0:
         print("Não existe cliente com o nome inserido.")        
 
-def cliente_com_mais_compras(nome = "", email = "", compras = 0):
+def cliente_com_mais_compras(nome = "", email = "", compras = []):
     cliente_mais_compras = {"Nome": nome, "E-mail": email,"Compras": compras}
     for cliente in clientes:
         if len(cliente["Compras"]) > len(cliente_mais_compras["Compras"]):
@@ -73,7 +75,7 @@ def cliente_com_mais_compras(nome = "", email = "", compras = 0):
     print("Nome do cliente: " + cliente_mais_compras["Nome"] + "\n" + "E-mail do cliente: " + cliente_mais_compras["E-mail"])        
 
 def total_clientes():
-    print(clientes.length)
+    print(len(clientes))
 
 def sair():
     global isContinue
@@ -101,7 +103,7 @@ while isContinue:
         listar_clientes()
 
     elif selecao == 5:
-        nome_do_cliente = input("Indique o nome do cliente cuja compra deseja cadastrar: : ")
+        nome_do_cliente = input("Indique o nome do cliente cuja compra deseja cadastrar: ")
         registrar_compras(nome_do_cliente)
 
     elif selecao == 6:
