@@ -1,4 +1,4 @@
-#Teremos uma lista de tarefas que deverá ter as seguintes opções:
+# Teremos uma lista de tarefas que deverá ter as seguintes opções:
 # Adicionar, Listar, Marcar como Concluída, Remover
 
 
