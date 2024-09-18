@@ -12,9 +12,9 @@ import re
 
 
 isContinue = True
-categorias_de_gastos = {}
-receitas = {}
-despesas = {}
+categorias_de_gastos = set()
+receitas = []
+despesas = []
 orcamentos = {}
 
 def continuar_selecao(): 
@@ -24,7 +24,7 @@ def continuar_selecao():
 
 def adicionar_categoria(categorias: str, categoria: str):
     categoria = {"Categoria de Gasto": categorias, "Categoria": categoria}
-    categorias_de_gastos.append(categoria)
+    categorias_de_gastos = categorias_de_gastos.union(categoria.items())
 
 def remover_categoria(nome_categoria: str):
     ocorrencias = 0
@@ -70,73 +70,104 @@ def listar_despesas_categoria(categoria: str):
     if ocorrencias == 0:
         print("Ou a categoria apontada não existe, ou não existem despesas nesta categoria")
 
-#PAREI AQUI DE AJUSTAR
+def calcular_total_receitas():
+    total = 0
+    for receita in receitas:
+        total += receita
+    print("Seu total de receitas é: " + total)    
 
-# def calcular_total_receitas():
-#     for cliente in clientes:
-#         print("Nome do cliente: " + cliente["Nome"] + "\n" + "E-mail do cliente: " + cliente["E-mail"] + "\n")
+def calcular_total_despesas():
+    total = 0
+    for despesa in despesas:
+        total += despesa
+    print("Seu total de despesas é: " + total)
 
-# def calcular_total_despesas():
-#     for cliente in clientes():
-#         print("Nome do cliente: " + cliente["Nome"] + "\n" + "E-mail do cliente: " + cliente["E-mail"] + "\n")
+def calcular_saldo_total():
+    total_despesas = calcular_total_despesas()
+    total_receitas = calcular_total_receitas()
+    final = total_receitas - total_despesas
 
-# def calcular_saldo_total():
-#     for cliente in clientes:
-#         print("Nome do cliente: " + cliente["Nome"] + "\n" + "E-mail do cliente: " + cliente["E-mail"] + "\n")
+    print("Seu saldo total é: " + final)
 
-# def adicionar_orcamento():
-#     cliente = {"Nome": nome, "E-mail": email, "Compras": []}
-#     clientes.append(cliente)
+def adicionar_orcamento(categoria: str, valor: str):
+    categoria = {"Categoria": categoria, "Orçamento": valor}
+    categorias_de_gasto.append(categoria)
 
-# def listar_orcamentos():
-#     for cliente in clientes:
-#         print("Nome do cliente: " + cliente["Nome"] + "\n" + "E-mail do cliente: " + cliente["E-mail"] + "\n")
+def listar_orcamentos():
+    for categoria in categorias_de_gasto:
+        print("Categoria: " + categoria["Categoria"] + "\n" + "Orçamento" + categoria["Orçamento"] + "\n")
+   
+def verificar_despesa_por_orcamento():
+    categoria = {"Saldo Disponível": categoria["Orçamento"] - categoria["Despesa"]}
+    for categoria in categorias_de_gasto:
+        print("Categoria" + categoria["Categoria"] + "\n" + "Orçamento: " + categoria["Orçamento"] + "\n" + "Valor restante após gastos: " + categoria["Saldo Disponível"])
+   
+def limpar_financas():
+    global isContinue
+    isContinue = False
+    despesas = {}
+    receitas = {}
+    orcamentos = {}
+    print("Você limpou todo o histórico de finanças.")
+    return isContinue
 
-# def verificar_despesa_por_orcamento():
-#     for cliente in clientes:
-#         print("Nome do cliente: " + cliente["Nome"] + "\n" + "E-mail do cliente: " + cliente["E-mail"] + "\n")
+while isContinue:
+    selecao = continuar_selecao()
 
-# def limpar_financas():
-#     global isContinue
-#     isContinue = False
-#     despesas = {}
-#     receitas = {}
-#     orcamentos = {}
-#     print("Você limpou todo o histórico de finanças.")
-#     return isContinue
+    if selecao == 1:
+        categorias = input("Indique a categoria de gastos: ")
+        categoria = input("Indique o nome da nova categoria: ")
+        adicionar_categoria(categorias, categoria)
 
-# while isContinue:
-#     selecao = continuar_selecao()
+    elif selecao == 2:
+        categoria = input("Indique o nome da categoria que deseja remover: ")
+        remover_categoria(categoria)
 
-#     if selecao == 1:
-#         nome_do_cliente = input("Indique o nome do cliente: ")
-#         email_do_cliente = input("E o e-mail do cliente: ")
-#         adicionar_cliente(nome_do_cliente, email_do_cliente)
+    elif selecao == 3:
+        listar_categorias()
 
-#     elif selecao == 2:
-#         nome_do_cliente = input("Indique o nome do cliente que deseja remover: ")
-#         remover_cliente(nome_do_cliente)
+    elif selecao == 4:
+        descricao = input("Adicione uma descrição à sua receita: ")
+        valor = int(input("Indique o valor: "))
 
-#     elif selecao == 3:
-#         nome_do_cliente = input("Indique o nome do cliente cujas informações deseja buscar: ")
-#         buscar_cliente()
+        adicionar_receita(descricao, valor)
 
-#     elif selecao == 4:
-#         listar_clientes()
+    elif selecao == 5:
+        descricao = input("Adicione uma descrição à sua receita: ")
+        valor = int(input("Indique o valor: "))
+        nome_da_categoria = input("Indique a categoria a qual essa despesa pertence: ")
 
-#     elif selecao == 5:
-#         nome_do_cliente = input("Indique o nome do cliente cuja compra deseja cadastrar: ")
-#         registrar_compras(nome_do_cliente)
+        adicionar_despesa(descricao, valor, nome_da_categoria)
 
-#     elif selecao == 6:
-#         nome_do_cliente = input("Indique o nome do cliente cujo histórico de compras queira ver: ")
-#         ver_historico_compras(nome_do_cliente)
+    elif selecao == 6:
+        listar_receitas()
 
-#     elif selecao == 7:
-#         cliente_com_mais_compras()
+    elif selecao == 7:
+        listar_despesas()
 
-#     elif selecao == 8:
-#         total_clientes()
+    elif selecao == 8:
+        categoria = input("Indique o nome da categoria a qual deseja consultar as despesas: ")
 
-#     elif selecao == 9:
-#         sair()
+        listar_despesas_categoria()
+
+    elif selecao == 9:
+        calcular_total_receitas()
+
+    elif selecao == 10:
+        calcular_total_despesas()
+
+    elif selecao == 11:
+        calcular_saldo_total()
+
+    elif selecao == 12:
+        categoria = input("Indique a categoria na qual deseja adicionar um orçamento: ")
+        valor = int(input("Indique o valor do orçamento: "))
+
+    elif selecao == 13:
+        listar_orcamentos()
+
+    elif selecao == 14:                          
+        verificar_despesas_por_orcamento()
+
+    elif selecao == 15:
+        limpar_financas()
