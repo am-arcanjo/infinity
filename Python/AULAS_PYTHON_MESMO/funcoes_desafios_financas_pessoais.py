@@ -75,12 +75,14 @@ def calcular_total_receitas():
     for receita in receitas:
         total += receita["Valor"]
     print("Seu total de receitas é: " + str(total))    
+    return total
 
 def calcular_total_despesas():
     total = 0
     for despesa in despesas:
         total += despesa["Valor"]
     print("Seu total de despesas é: " + str(total))
+    return total
 
 def calcular_saldo_total():
     total_despesas = calcular_total_despesas()
