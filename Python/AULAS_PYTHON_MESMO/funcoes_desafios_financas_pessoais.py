@@ -12,24 +12,24 @@ import re
 
 
 isContinue = True
-categorias_de_gastos = set()
+categorias_de_gastos = []
 receitas = []
 despesas = []
 orcamentos = {}
 
 def continuar_selecao(): 
-    selecao = int(input("\n Escolha o que quer fazer: \n 1. Adicionar Categoria de Gasto \n 2. Remover Categoria de Gasto \n 3. Listar Categorias de Gasto \n 4. Adicionar Receita \n 5. Registrar Compra \n 6. Ver Histórico de Compras \n 7. Mostrar Cliente Com Mais Compras \n 8. Mostrar Total de Clientes \n 9. Sair \n "))
+    selecao = int(input("\n Escolha o que quer fazer: \n 1. Adicionar Categoria de Gasto \n 2. Remover Categoria de Gasto \n 3. Listar Categorias de Gasto \n 4. Adicionar Receita \n 5. Adicionar Despesa \n 6. Listar Todas as Receitas \n 7. Listar Todas as Despesas \n 8. Listar Despesas por Categoria \n 9. Calcular Total de Receitas \n 10. Calcular Total de Despesas \n 11. Calcular o Saldo Total \n 12. Adicionar um Orçamento \n 13. Listar Orçamentos \n 14. Verificar Despesas por orçamento \n 15. Limpar Finanças \n \n"))
     print(selecao)
     return selecao
 
 def adicionar_categoria(categorias: str, categoria: str):
     categoria = {"Categoria de Gasto": categorias, "Categoria": categoria}
-    categorias_de_gastos = categorias_de_gastos.union(categoria.items())
+    categorias_de_gastos.append(categoria)
 
 def remover_categoria(nome_categoria: str):
     ocorrencias = 0
     for categoria in categorias_de_gastos:
-        if(categoria["Nome"] == nome_categoria):
+        if(categoria["Categoria"] == nome_categoria):
             categorias_de_gastos.remove(categoria)
             ocorrencias += 1
     if ocorrencias == 0:
@@ -44,10 +44,10 @@ def adicionar_receita(descricao: str, valor: int):
     receitas.append(receita)
 
 def adicionar_despesa(descricao: str, valor: int, nome_da_categoria: str):
-    despesa = {"Descrição": descricao, "Valor": valor, "Categoria a qual pertence": nome_da_categoria}
+    despesa = {"Descrição": descricao, "Valor": valor, "Categoria de Gasto": nome_da_categoria}
     ocorrencias = 0    
     for categoria in categorias_de_gastos:
-        if categoria["Categoria de Gastos"] == nome_da_categoria:
+        if categoria["Categoria de Gasto"] == nome_da_categoria:
             despesas.append(despesa)
             ocorrencias += 1
     if ocorrencias == 0:
@@ -59,13 +59,13 @@ def listar_receitas():
 
 def listar_despesas():
     for despesa in despesas:
-        print("Descrição: " + despesa["Descrição"] + "\n" + "Valor: " + despesa["Valor"] + "\n" "Categoria de gastos: " + despesa["Categoria a qual pertence"] + "\n") 
+        print("Descrição: " + despesa["Descrição"] + "\n" + "Valor: " + str(despesa["Valor"]) + "\n" "Categoria de gastos: " + despesa["Categoria a qual pertence"] + "\n") 
 
 def listar_despesas_categoria(categoria: str):
     ocorrencias = 0
     for despesa in despesas:
         if despesa["Categoria a qual pertence"] == categoria:
-            print("Descrição: " + despesa["Descrição"] + "\n" + "Valor: " + despesa["Valor"] + "\n" "Categoria de gastos: " + despesa["Categoria a qual pertence"] + "\n")
+            print("Descrição: " + despesa["Descrição"] + "\n" + "Valor: " + str(despesa["Valor"] + "\n" "Categoria de gastos: " + despesa["Categoria a qual pertence"] + "\n"))
             ocorrencias += 1
     if ocorrencias == 0:
         print("Ou a categoria apontada não existe, ou não existem despesas nesta categoria")
@@ -73,14 +73,14 @@ def listar_despesas_categoria(categoria: str):
 def calcular_total_receitas():
     total = 0
     for receita in receitas:
-        total += receita
-    print("Seu total de receitas é: " + total)    
+        total += receita["Valor"]
+    print("Seu total de receitas é: " + str(total))    
 
 def calcular_total_despesas():
     total = 0
     for despesa in despesas:
-        total += despesa
-    print("Seu total de despesas é: " + total)
+        total += despesa["Valor"]
+    print("Seu total de despesas é: " + str(total))
 
 def calcular_saldo_total():
     total_despesas = calcular_total_despesas()
