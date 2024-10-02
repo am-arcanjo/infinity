@@ -206,38 +206,68 @@ round = 1
 
 ##### FALTAM AJUSTES
 
+#Depois trocar pra fazer algo que se assemelhe a um switch-case
+
 while acertou == False and round <= 10:
-    jogador = 1
-    print(f"A primeira dica é: {dicas["dica_1"]}")
-    chute1 = input("Jogador {}, tente acertar a palavra: ")
-    if chute1 == palavra:
-        print("Jogador 1, você venceu!")
-        acertou = True
-    else:
-        print(f"\nJogador {}, agora é sua vez de tentar acertar a palavra. \nA primeira dica foi: {dicas["dica_1"]}.")
-        iterador += 1 
-        print(f"E a segunda dica é {dicas["dica_02"]}.")
-        chute2 = input("Qual seu chute?: ")
-        if chute2 == palavra:
-            print("Jogador 2, você venceu!")
+    jogador1 = 1
+    jogador2 = 2
+    pontuacao1 = 0
+    pontuacao2 = 0
+    
+    if round % 2 != 0:
+        print(f"A primeira dica é: {dicas["dica_1"]}")
+        chute1 = input(f"Jogador {jogador1}, tente acertar a palavra: ")
+        if chute1 == palavra:
+            print("Jogador 1, você venceu!")
+            pontuacao1 += 5
             acertou = True
         else:
-            print(f"\nJogador 1, agora é sua vez de tentar acertar a palavra. \nA primeira dica foi {dicas[iterador - 1]}. \nA segunda dica foi: {dicas[iterador]}.")
-            iterador += 1
-            print(f"E a terceira dica é {dicas[iterador]}.")
-            chute3 = input("Tente acertar a palavra, Jogador 1!: ")
-            if chute3 == palavra:
-                print("Jogador 1, você venceu!")
+            print(f"\nJogador {jogador2}, agora é sua vez de tentar acertar a palavra. \nA segunda dica é {dicas["dica_02"]}..")
+            chute2 = input("Qual seu chute?: ")
+            if chute2 == palavra:
+                print("Jogador 2, você venceu!")
+                pontuacao2 += 3
                 acertou = True
             else:
-                print(f"\nJogador 2, agora é sua última vez de tentar acertar a palavra. \nA primeira dica foi {dicas[iterador - 1]}. \nA segunda dica foi: {dicas[iterador]}.")
-                print(f"E a terceira dica é {dicas[iterador]}.")
-                chute4 = input("Tente acertar a palavra, Jogador 2!: ")
-                if chute4 == palavra:
-                    print("Jogador 2, você venceu!")
+                print(f"\nJogador {jogador1}, agora é sua vez de tentar acertar a palavra. \nA terceira dica é {dicas["dica_03"]}")
+                chute3 = input("Tente acertar a palavra, Jogador 1!: ")
+                if chute3 == palavra:
+                    print("Jogador 1, você venceu!")
+                    pontuacao1 += 1
                     acertou = True
                 else:
-                    iterador += 1
                     print("O jogo acabou e nenhum dos dois venceu... Mais sorte na próxima!")
-
+    else:
+        print(f"A primeira dica é: {dicas["dica_1"]}")
+        chute1 = input(f"Jogador {jogador2}, tente acertar a palavra: ")
+        if chute1 == palavra:
+            print("Jogador 2, você venceu!")
+            pontuacao2 += 5
+            acertou = True
+        else:
+            print(f"\nJogador {jogador1}, agora é sua vez de tentar acertar a palavra. \nA segunda dica é {dicas["dica_02"]}.")
+            chute2 = input("Qual seu chute?: ")
+            if chute2 == palavra:
+                print("Jogador 1, você venceu!")
+                pontuacao1 += 3
+                acertou = True
+            else:
+                print(f"\nJogador {jogador2}, agora é sua vez de tentar acertar a palavra. \nE a terceira dica é {dicas["dica_03"]}.")
+                chute3 = input("Tente acertar a palavra, Jogador 2!: ")
+                if chute3 == palavra:
+                    print("Jogador 2, você venceu!")
+                    pontuacao2 += 1
+                    acertou = True
+                else:
+                    print("O jogo acabou e nenhum dos dois venceu... Mais sorte na próxima!")
+    round += 1
+    
+    list(dicionario.items()).remove(palavra, dicas)
+    #Ver se essa lógica pra remoção da palavra e dicas que já foram funciona de fato
+    
+    palavra, dicas = random.choice(list(dicionario.items()))
+    
+    
+    
+    
 
