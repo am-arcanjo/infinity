@@ -266,6 +266,7 @@ while acertou == False and round <= 10:
     #Ver se essa lógica pra remoção da palavra e dicas que já foram funciona de fato
     
     palavra, dicas = random.choice(list(dicionario.items()))
+
     
     
     
