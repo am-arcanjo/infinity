@@ -14,13 +14,14 @@ class Estudante(Pessoa):
         self.turma = turma
     
     def apresentar(nome, idade, turma):
-        print("Olá, eu sou o aluno {self.nome}, tenho {self.idade} anos e estou na turma {self.turma}.")
+        print(f"Olá, eu sou o aluno {nome}, tenho {idade} anos e estou na turma {turma}.")
 
 class Professor(Pessoa):
     def __init__(self, nome, idade):
         super.__init__(nome, idade)
     
     def apresentar(nome, idade):
-        print("Olá, eu sou o professor {nome}, e tenho {idade} anos.")
+        print(f"Olá, eu sou o professor {nome}, e tenho {idade} anos.")
         
-Estudante.apresentar("Rico", 34, "Biologia molecular")
+Estudante.apresentar("Rico", 34, "Biologia Molecular")
+Professor.apresentar("Gaspar", 51)
