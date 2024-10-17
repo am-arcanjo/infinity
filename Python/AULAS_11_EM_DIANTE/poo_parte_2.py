@@ -77,6 +77,8 @@ class Atendente(Funcionario):
     
     def imprimir_atendente(nome, salario, turno):
         print(f"O nome deste atendente é {nome}, seu salário é de {salario} reais e seu turno é o da {turno}.")
+    #Note que poderia ser imprimir_atendente(self):
+    #print(f"O nome deste atendente é {self.nome}, seu salário é de {self.salario} reais e seu turno é o da {self.turno}.")
 
 Atendente.imprimir_atendente("Marciano", 1800, "noite")
 Gerente.imprimir_gerente("Rachel", 2400, 500)
