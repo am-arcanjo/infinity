@@ -26,7 +26,27 @@ medico_1.marcar_consulta(paciente_1, "20092015")
 medico_1.listar_consultas_geral()
 
 
+# Sobre encapsulamento e getters e setters
+# No python podemos usar os clássicos métodos get_coisa e set_coisa ou podemos usar annotations @property pro getter e @coisa.setter pro setter
+# Definimos o atributo que queremos que seja privado com __ antes do nome dele ou seja, self.coisa + __coisa; e dessa forma não é possível acessar e nem modificar o valor diretamente (sem os getters e setters).
 
+# Exercício: Crie uma classe ContaBancaria que tenha saldo privado, e faça métodos para depositar, sacar e verificar o saldo
+
+class ContaBancaria:
+    def __init__(self, saldo):
+        self.__saldo = saldo
+
+    @property
+    def saldo(self):
+        return self.__saldo
+    
+    @saldo.setter
+    def modificar_saldo(self, valor):
+        self.__saldo += valor
+        
+    def sacar(self, valor):
+        modificar_saldo()
+        
 
         
         
