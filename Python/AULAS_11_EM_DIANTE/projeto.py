@@ -1,13 +1,6 @@
-#Projeto de Reserva de Hotel
+# Projeto de Reserva de Hotel
 
-# import flet as ft
-
-# def principal(page: ft.Page):
-     
-#     page.add()
-
-# ft.app(target=principal)
-
+import flet as ft
 
 
 class Cliente:
@@ -35,11 +28,68 @@ class Reserva:
         self.confirmada = True
         self.quarto.disponibilidade = False
     
-    
 class GerenciadorDeReservas:
-    def __init__(self, reserva: Reserva):
-            self.reserva = reserva    
+    def __init__(self):
+            self.Lista_de_reservas = []
+            self.lista_de_quartos = []   
+    
+    def adicionar_quarto(self, quarto: Quarto):
+        self.lista_de_quartos.append(quarto)
+       
+    def listar_quartos_disponiveis(self):
+        quartos_disponiveis = []
+        for quarto in self.lista_de_quartos:
+            if quarto.disponibilidade:
+                quartos_disponiveis.append(quarto)
+        print(quartos_disponiveis)
+    
+    def criar_reserva(self, cliente: Cliente, quarto: Quarto, data, numero_quarto):
+        quarto_reservado = None
         
-
-quarto_1 = Quarto(101, "Básico" , 150)
+        for quarto in self.lista_de_quartos:
+            if quarto.disponibilidade == True and quarto.numero == numero_quarto:
+                quarto_reservado = quarto
+            else:
+                print("A reserva não está disponível para o quarto selecionado.")    
+        
+        if quarto_reservado != None:
+            reserva_do_quarto = Reserva(cliente, quarto, data)
+            self.lista_de_reservas.append(reserva_do_quarto)
+            reserva_do_quarto.confirmar_reserva()
+            return reserva_do_quarto
+        
 cliente_1 = Cliente("Anabella", "anna.bella@gmail.com")
+    
+    
+def principal(page: ft.Page):
+    # Inicializador do gerenciador de reservas
+    gerenciador_hotel = GerenciadorDeReservas()
+    quarto_1 = Quarto(101, "Básico", 150)
+    quarto_2 = Quarto(201, "Deluxe", 250)
+    quarto_3 = Quarto(301, "Premium", 350)
+    
+    gerenciador_hotel.adicionar_quarto(quarto_1)
+    gerenciador_hotel.adicionar_quarto(quarto_2)
+    gerenciador_hotel.adicionar_quarto(quarto_3)
+    
+    
+    # Seção visual de entradas do cliente
+    nome_cliente = ft.TextField(label = "Nome do cliente", width = 300)
+    email_cliente = ft.TextField(label = "E-mail do cliente", width = 300)
+    numero_quarto = ft.TextField(label = "Número do quarto", width = 300)
+    data = ft.TextField(label = "Data (Formato: AAAA-MM-DD)", width = 300)
+    
+    lista_quartos = ft.Column()
+    status = ft.Text()
+    
+    page.add(
+        ft.Column([
+            ft.Text("Sistema de Reservas do Hotel", size = 45.5),
+            lista_quartos,
+            ft.Row([nome_cliente, email_cliente]),
+            ft.Row([numero_quarto, data])
+        ])
+    )
+
+ft.app(target=principal)   
+    
