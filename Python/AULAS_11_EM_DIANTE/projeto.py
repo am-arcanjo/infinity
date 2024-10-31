@@ -43,14 +43,13 @@ class GerenciadorDeReservas:
                 quartos_disponiveis.append(quarto)
         print(quartos_disponiveis)
     
-    def criar_reserva(self, cliente: Cliente, quarto: Quarto, data, numero_quarto):
+    def criar_reserva(self, cliente: Cliente, data, numero_quarto):
         quarto_reservado = None
         
         for quarto in self.lista_de_quartos:
             if quarto.disponibilidade == True and quarto.numero == numero_quarto:
-                quarto_reservado = quarto
-            else:
-                print("A reserva não está disponível para o quarto selecionado.")    
+                quarto_reservado = quarto   
+                return quarto_reservado
         
         if quarto_reservado != None:
             reserva_do_quarto = Reserva(cliente, quarto, data)
@@ -71,7 +70,7 @@ def principal(page: ft.Page):
     gerenciador_hotel.adicionar_quarto(quarto_1)
     gerenciador_hotel.adicionar_quarto(quarto_2)
     gerenciador_hotel.adicionar_quarto(quarto_3)
-    
+
     
     # Seção visual de entradas do cliente
     nome_cliente = ft.TextField(label = "Nome do cliente", width = 300)
@@ -82,12 +81,28 @@ def principal(page: ft.Page):
     lista_quartos = ft.Column()
     status = ft.Text()
     
+    # Funções
+    def reservar_quarto(evento):
+        print(nome_cliente.value)
+        print(email_cliente.value)
+        cliente_informado = Cliente(nome_cliente.value, email_cliente.value)
+        numero_quarto_informado = int(numero_quarto.value)
+        data_informada = data.value
+        reserva = gerenciador_hotel.criar_reserva(cliente_informado, numero_quarto_informado, data_informada)
+        
+        if reserva != None:
+            status.value = "A sua reserva deu certo!"
+        else:
+            status.value = "O quarto escolhido não têm disponibilidade."
+    
     page.add(
         ft.Column([
             ft.Text("Sistema de Reservas do Hotel", size = 45.5),
             lista_quartos,
             ft.Row([nome_cliente, email_cliente]),
-            ft.Row([numero_quarto, data])
+            ft.Row([numero_quarto, data]),
+            ft.ElevatedButton("Reservar Quarto", on_click=reservar_quarto),
+            status
         ])
     )
 
