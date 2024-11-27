@@ -1,4 +1,5 @@
-Criando tabela filmes:
+- Criando tabela filmes:
+
 CREATE TABLE filmes (
   id INTEGER PRIMARY KEY AUTOINCREMENT
   , nome VAR(255) NOT NULL
@@ -7,6 +8,14 @@ CREATE TABLE filmes (
 );
 
 
-Inserindo filme:
+- Inserindo filmes:
+
 INSERT INTO filmes (nome, diretor, ano_lancamento) VALUES
-("As Branquelas", "Keenen Ivory", 2004)
+('As Branquelas', 'Keenen Ivory', 2004),
+('Bob Esponja: o Filme', 'Stephen Hillenburg', 2004)
+
+
+
+- Selecionando dados da tabela:
+
+SELECT * FROM filmes
