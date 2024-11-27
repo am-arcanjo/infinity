@@ -19,3 +19,16 @@ INSERT INTO filmes (nome, diretor, ano_lancamento) VALUES
 - Selecionando dados da tabela:
 
 SELECT * FROM filmes
+
+
+
+- Criando outra tabela associada por foreign KEYCREATE TABLE personagens (
+  
+  id INTEGER PRIMARY KEY AUTOINCREMENT
+  , nome VAR(255) NOT NULL
+  , idade INTEGER NOT NULL
+  , eh_superheroi BOOL
+  , esta_morto BOOL
+  , filme_id INTEGER NOT NULL
+  , FOREIGN KEY (filme_id) REFERENCES filmes(id)
+);

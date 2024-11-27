@@ -1,4 +1,3 @@
-"""
 Operadores e afins: 
 SELECT → seleciona ocorrências
 * → significa "tudo"
@@ -39,6 +38,3 @@ Condição:
 HAVING → serve para quando se quer filtrar resultados de consultas que envolvem agregações (como SUM, COUNT, AVG, etc).
 Interessante quando você já agrupou os dados e quer aplicar novas condições a esses grupos.
 
-
-
-"""
