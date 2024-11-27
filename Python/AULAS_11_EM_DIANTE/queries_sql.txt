@@ -1,0 +1,12 @@
+Criando tabela filmes:
+CREATE TABLE filmes (
+  id INTEGER PRIMARY KEY AUTOINCREMENT
+  , nome VAR(255) NOT NULL
+  , diretor VARCHAR(255) NOT NULL
+  , ano_lancamento INTEGER NOT NULL
+);
+
+
+Inserindo filme:
+INSERT INTO filmes (nome, diretor, ano_lancamento) VALUES
+("As Branquelas", "Keenen Ivory", 2004)
