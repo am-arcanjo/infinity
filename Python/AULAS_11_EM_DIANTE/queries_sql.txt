@@ -1,0 +1,51 @@
+- Criando tabela filmes:
+
+CREATE TABLE filmes (
+  id INTEGER PRIMARY KEY AUTOINCREMENT
+  , nome VAR(255) NOT NULL
+  , diretor VARCHAR(255) NOT NULL
+  , ano_lancamento INTEGER NOT NULL
+);
+
+
+- Inserindo filmes:
+
+INSERT INTO filmes (nome, diretor, ano_lancamento) VALUES
+('As Branquelas', 'Keenen Ivory', 2004),
+('Bob Esponja: o Filme', 'Stephen Hillenburg', 2004)
+
+
+
+- Selecionando dados da tabela:
+
+SELECT * FROM filmes
+
+
+
+- Criando outra tabela associada por foreign KEYCREATE TABLE personagens (
+  
+  id INTEGER PRIMARY KEY AUTOINCREMENT
+  , nome VAR(255) NOT NULL
+  , idade INTEGER NOT NULL
+  , eh_superheroi BOOL
+  , esta_morto BOOL
+  , filme_id INTEGER NOT NULL
+  , FOREIGN KEY (filme_id) REFERENCES filmes(id)
+);
+
+
+- Update
+
+UPDATE personagens
+SET idade = 1001
+WHERE id = 1
+
+
+- Inserindo em outra tabela
+
+INSERT INTO personagens (nome, idade, eh_superheroi, esta_morto, filme_id) VALUES
+('Bob Esponja', '1000', false, false, 2)
+
+
+
+

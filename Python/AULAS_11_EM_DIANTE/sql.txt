@@ -1,0 +1,40 @@
+Operadores e afins: 
+SELECT → seleciona ocorrências
+* → significa "tudo"
+WHERE → explicita alguma condição
+IN → verifica a inclusão de algo em uma lista que se selecione
+NOT IN → verifica a não inclusão de algo na lista selecionada
+BETWEEN → verifica o que de dentro da tabela está entre dois valores dados (não necessariamente numéricos, podem ser datas, por exemplo)
+AND → agrega condições nas quais todas devem ser verdade
+OR → agrega condições onde ao menos uma das condições há de ser verdade
+
+Comparadores:
+= → igual
+!= ou <> → diferente
+> → maior que
+< → menor que
+>= → maior ou igual
+<= → menor ou igual
+
+Funções agregadoras:
+Observação: todas tem opção de se observar tudo (*) ou colunas específicas
+COUNT (*) → conta registros incluindo linhas com valor nulo
+COUNT (coluna) → conta registros excluindo linhas com valor nulo
+Nota: Se usam como COUNT(tal_coisa) AS nome_da_contagem
+SUM → soma valores
+Nota: Se usam como SUM(tal_coisa) AS nome_da_soma
+AVG → retorna a média de valores 
+Nota: Se usam como AVG(tal_coisa) AS nome_da_media
+MAX → retorna o maior valor de um conjunto de dados
+Nota: Se usam como MAX(tal_coisa) AS nome_do_maximo
+MIN → retorna o menor valor de um conjunto de dados
+Nota: Se usam como MIN(tal_coisa) AS nome_do_minimo
+
+
+Cláusula:
+GROUP BY → agrupinha linhas que tem valores em comum em uma ou mais colunas.
+
+Condição:
+HAVING → serve para quando se quer filtrar resultados de consultas que envolvem agregações (como SUM, COUNT, AVG, etc).
+Interessante quando você já agrupou os dados e quer aplicar novas condições a esses grupos.
+
