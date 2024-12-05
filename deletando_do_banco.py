@@ -1,6 +1,6 @@
 import sqlite3
 
-def apagar_filme(nid: int, arquivo_banco: str):
+def apagar_filme(id: int, arquivo_banco: str):
     connection = sqlite3.connect(arquivo_banco)
     cursor = connection.cursor()
     cursor.execute(f'''
